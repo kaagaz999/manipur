@@ -575,19 +575,30 @@ a{ color: inherit; }
   border-top-color: rgba(243,236,227,0.15);
   color: var(--cream-dim);
 }
+/* ---- CLOSING MEDIA ---- */
+.closing-media {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--ink); /* Blends seamless background framing */
+  padding: var(--space-md) var(--space-sm);
+}
 
-/* ---- CLOSING MEDIA — one full-bleed image between sections 3
-   and the closing statement. Same duotone treatment as hero, but
-   flatter (no gradient into type) since text sits in its own
-   section below rather than on top of it. ---- */
-.closing-media{ position: relative; overflow: hidden; }
-.closing-media:empty{ display: none; }
-.closing-media img{
+.closing-media:empty {
+  display: none;
+}
+
+.closing-media img {
   display: block;
   width: 100%;
-  max-height: 60vh;
-  object-fit: cover;
-  filter: grayscale(0.5) contrast(1.05) brightness(0.7);
+  max-width: 900px; /* Constrains line length so sign stays proportional */
+  height: auto;
+  max-height: 80vh; /* Gives room on tall screens without clipping */
+  object-fit: contain; /* Prevents cropping/truncation entirely */
+  filter: grayscale(0.4) contrast(1.1) brightness(0.75);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6); /* Adds subtle depth against dark background */
 }
 
 /* ---- MEDIA SLOT — deliberately minimal/invisible for now.
@@ -771,6 +782,32 @@ a{ color: inherit; }
   transition: border-color 0.3s var(--ease);
 }
 .footer-sub a:hover{ border-color: var(--red-hot); }
+.footer-meta{
+  font-size: 0.8rem;
+  color: #6b6259;
+  margin-top: var(--space-sm);
+  letter-spacing: 0.02em;
+}
+.footer-social{
+  margin-top: var(--space-sm);
+  display: flex;
+  justify-content: center;
+}
+.instagram-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid rgba(243,236,227,0.18);
+  border-radius: 999px;
+  color: var(--cream-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+.instagram-link svg{ width: 16px; height: 16px; fill: currentColor; }
+.instagram-link:hover{ border-color: var(--red-hot); color: var(--cream); }
 
 /* ==================================================================
    RESPONSIVE — mobile refinements
